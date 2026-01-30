@@ -1,0 +1,45 @@
+name: LeetCode → Insight Cards (Accepted, Java)
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"  # every 15 minutes
+  workflow_dispatch:
+    inputs:
+      backfill:
+        description: "Set to true to regenerate cards for the last LC_LIMIT accepted submissions"
+        required: false
+        default: "false"
+
+permissions:
+  contents: write
+
+jobs:
+  build-insights:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run LeetCode poller
+        env:
+          LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
+          LEETCODE_CSRF: ${{ secrets.LEETCODE_CSRF }}
+          LEETCODE_USERNAME: rockymountainsandbeaches
+          LC_LIMIT: "100"
+          # backfill can be toggled from workflow_dispatch input
+          LC_BACKFILL: ${{ github.event.inputs.backfill == 'true' && '1' || '0' }}
+        run: |
+          python scripts/lc_insights_poller.py
+
+      - name: Commit & push changes
+        run: |
+          git config user.name "leetcode-insight-bot"
+          git config user.email "leetcode-insight-bot@users.noreply.github.com"
+          git add insights .lc_state.json || true
+          git commit -m "Update LeetCode insight cards (accepted, java)" || echo "No changes"
+          git push
