@@ -4,6 +4,7 @@ import re
 import time
 from pathlib import Path
 from datetime import datetime, timezone
+from html import unescape
 
 import requests
 
@@ -167,16 +168,33 @@ def parse_examples_from_html(content: str):
         example_num = match.group(1)
         example_content = match.group(2)
 
-        # Clean HTML tags
-        example_text = re.sub(r'<[^>]+>', '', example_content)
-        example_text = example_text.strip()
+        # First decode HTML entities
+        example_content = unescape(example_content)
 
-        # Parse Input/Output
-        lines = [line.strip() for line in example_text.split('\n') if line.strip()]
-        examples.append({
-            'number': example_num,
-            'text': '\n'.join(lines)
-        })
+        # Remove HTML tags but preserve structure
+        # Replace <br>, <br/>, </p>, etc. with newlines
+        example_content = re.sub(r'<br\s*/?>', '\n', example_content)
+        example_content = re.sub(r'</p>', '\n', example_content)
+        example_content = re.sub(r'</div>', '\n', example_content)
+
+        # Remove remaining HTML tags
+        example_text = re.sub(r'<[^>]+>', '', example_content)
+
+        # Decode any remaining HTML entities (double-encoded cases)
+        example_text = unescape(example_text)
+
+        # Clean up whitespace while preserving structure
+        lines = []
+        for line in example_text.split('\n'):
+            line = line.strip()
+            if line:
+                lines.append(line)
+
+        if lines:
+            examples.append({
+                'number': example_num,
+                'text': '\n'.join(lines)
+            })
 
     return examples
 
