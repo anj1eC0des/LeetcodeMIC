@@ -1,8 +1,8 @@
 # Implement Trie (Prefix Tree)
 
 **Difficulty:** Medium  
-**Submitted:** 2026-01-30 14:09 UTC  
-**Submission ID:** 1902048202
+**Submitted:** 2026-01-31 14:26 UTC  
+**Submission ID:** 1903075932
 
 ---
 
@@ -12,28 +12,22 @@
 
 ```
 Input
-[&quot;Trie&quot;, &quot;insert&quot;, &quot;search&quot;, &quot;search&quot;, &quot;startsWith&quot;, &quot;insert&quot;, &quot;search&quot;]
-[[], [&quot;apple&quot;], [&quot;apple&quot;], [&quot;app&quot;], [&quot;app&quot;], [&quot;app&quot;], [&quot;app&quot;]]
+["Trie", "insert", "search", "search", "startsWith", "insert", "search"]
+[[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]
 Output
 [null, null, true, false, true, null, true]
 Explanation
 Trie trie = new Trie();
-trie.insert(&quot;apple&quot;);
-trie.search(&quot;apple&quot;);   // return True
-trie.search(&quot;app&quot;);     // return False
-trie.startsWith(&quot;app&quot;); // return True
-trie.insert(&quot;app&quot;);
-trie.search(&quot;app&quot;);     // return True
-&nbsp;
+trie.insert("apple");
+trie.search("apple");   // return True
+trie.search("app");     // return False
+trie.startsWith("app"); // return True
+trie.insert("app");
+trie.search("app");     // return True
 ```
 
 ## My Notes
 
-- Your Trie object will be instantiated and called as such:
-- Trie obj = new Trie();
-- obj.insert(word);
-- boolean param_2 = obj.search(word);
-- boolean param_3 = obj.startsWith(prefix);
 - Trie class needs a map of tries, representing letters and a boolean field
 - "isWord" denoting if the trie denotes the last letter of a word.
 - void insert(String word) checks letters by going along the letters in map[]
