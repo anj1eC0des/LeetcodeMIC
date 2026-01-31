@@ -1,22 +1,2 @@
 # Insight Cards
 
-- Binary Tree Pruning
-- Convert BST to Greater Tree
-- Cousins in Binary Tree
-- Design Add and Search Words Data Structure
-- Flatten a Multilevel Doubly Linked List
-- Flatten Binary Tree to Linked List
-- Flatten Nested List Iterator
-- Implement Trie (Prefix Tree)
-- Linked List Components
-- Longest Palindromic Substring
-- Next Greater Node In Linked List
-- Partition List
-- Permutation in String
-- Sliding Window Maximum
-- Sort List
-- Split Linked List in Parts
-- Sum of Left Leaves
-- Swapping Nodes in a Linked List
-- Trapping Rain Water
-- Word Search II

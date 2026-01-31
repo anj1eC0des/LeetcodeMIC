@@ -38,6 +38,20 @@ query submissionDetails($submissionId: Int!) {
   }
 }
 """
+
+# New query to get problem details including examples
+QUESTION_DETAILS_QUERY = r"""
+query questionData($titleSlug: String!) {
+  question(titleSlug: $titleSlug) {
+    title
+    difficulty
+    content
+    exampleTestcases
+    sampleTestCase
+  }
+}
+"""
+
 # statusCode 10 == Accepted in common LeetCode client mappings [4](https://codingsnack.github.io/leetcode-api/classes/graphql_helper.GraphQLHelper.html)[1](https://github.com/topics/leetcode-api)
 
 # -----------------------
@@ -131,46 +145,116 @@ def extract_java_comments(code: str):
     return out
 
 # -----------------------
+# Parse HTML content to extract examples
+# -----------------------
+
+def parse_examples_from_html(content: str):
+    """
+    Extract example test cases from the HTML content.
+    LeetCode embeds examples in <strong>Example X:</strong> blocks.
+    """
+    if not content:
+        return []
+
+    examples = []
+    # Match Example blocks (Example 1:, Example 2:, etc.)
+    example_pattern = re.compile(
+        r'<strong[^>]*>Example\s+(\d+):</strong>(.*?)(?=<strong[^>]*>Example\s+\d+:</strong>|<strong[^>]*>Constraints:</strong>|$)',
+        re.DOTALL | re.IGNORECASE
+    )
+
+    for match in example_pattern.finditer(content):
+        example_num = match.group(1)
+        example_content = match.group(2)
+
+        # Clean HTML tags
+        example_text = re.sub(r'<[^>]+>', '', example_content)
+        example_text = example_text.strip()
+
+        # Parse Input/Output
+        lines = [line.strip() for line in example_text.split('\n') if line.strip()]
+        examples.append({
+            'number': example_num,
+            'text': '\n'.join(lines)
+        })
+
+    return examples
+
+# -----------------------
 # Markdown writing (overwrite per problem slug)
 # -----------------------
 
-def write_card(slug, title, submission_id, submitted_ts, comments):
+def write_card(slug, title, difficulty, submission_id, submitted_ts, examples, comments):
     INSIGHTS_DIR.mkdir(parents=True, exist_ok=True)
     out_path = INSIGHTS_DIR / f"{slug}.md"
 
     updated = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    submitted_at = datetime.fromtimestamp(int(submitted_ts), tz=timezone.utc).isoformat()
+    submitted_at = datetime.fromtimestamp(int(submitted_ts), tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
-    front = (
-        f"---\n"
-        f"problem: {title}\n"
-        f"slug: {slug}\n"
-        f"language: Java\n"
-        f"submission_id: {submission_id}\n"
-        f"submitted_at_utc: {submitted_at}\n"
-        f"updated: {updated}\n"
-        f"---\n\n"
-    )
+    # Build the markdown content
+    md_content = f"""# {title}
 
-    body = "## Notes (from Java code comments)\n"
-    if comments:
-        body += "\n".join([f"- {c}" for c in comments]) + "\n"
+**Difficulty:** {difficulty}  
+**Submitted:** {submitted_at}  
+**Submission ID:** {submission_id}
+
+---
+
+"""
+
+    # Add test cases/examples section
+    if examples:
+        md_content += "## Test Cases\n\n"
+        for example in examples:
+            md_content += f"### Example {example['number']}\n\n"
+            md_content += "```\n"
+            md_content += example['text']
+            md_content += "\n```\n\n"
     else:
-        body += "- (No comments found)\n"
+        md_content += "## Test Cases\n\n"
+        md_content += "*No example test cases extracted*\n\n"
 
-    out_path.write_text(front + body, encoding="utf-8")
+    # Add comments section
+    md_content += "## My Notes\n\n"
+    if comments:
+        for comment in comments:
+            # Format as bullet points for readability
+            md_content += f"- {comment}\n"
+        md_content += "\n"
+    else:
+        md_content += "*No comments found in submission*\n\n"
+
+    # Add metadata footer
+    md_content += "---\n\n"
+    md_content += f"*Last updated: {updated}*\n"
+
+    out_path.write_text(md_content, encoding="utf-8")
 
 def update_index():
     if not INSIGHTS_DIR.exists():
         return
     files = sorted([p for p in INSIGHTS_DIR.glob("*.md") if p.name != "README.md"])
-    lines = ["# Insight Cards\n"]
+
+    lines = ["# LeetCode Insight Cards\n\n"]
+    lines.append("Personal notes and reflections from LeetCode problem submissions.\n\n")
+    lines.append("## Problems\n\n")
+
     for p in files:
         txt = p.read_text(encoding="utf-8")
-        m = re.search(r"^problem:\s*(.*)$", txt, re.MULTILINE)
+        # Extract title from the markdown (first # heading)
+        m = re.search(r"^#\s+(.*)$", txt, re.MULTILINE)
         title = m.group(1).strip() if m else p.stem
-        lines.append(f"- {title}")
-    (INSIGHTS_DIR / "README.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+        # Extract difficulty
+        diff_match = re.search(r"\*\*Difficulty:\*\*\s+(\w+)", txt)
+        difficulty = diff_match.group(1) if diff_match else "Unknown"
+
+        # Create emoji for difficulty
+        emoji = {"Easy": "🟢", "Medium": "🟡", "Hard": "🔴"}.get(difficulty, "⚪")
+
+        lines.append(f"- {emoji} [{title}]({p.name})\n")
+
+    (INSIGHTS_DIR / "README.md").write_text("".join(lines), encoding="utf-8")
 
 # -----------------------
 # State (avoid reprocessing same submission IDs)
@@ -233,6 +317,7 @@ def main():
 
         print(f"[INFO] Processing submissionId={sid} slug={slug} title={title}")
 
+        # Fetch submission details
         details_data = graphql_post(
             SUBMISSION_DETAILS_QUERY,
             {"submissionId": sid},
@@ -254,7 +339,26 @@ def main():
         if not comments:
             print(f"[INFO] No comments found for submissionId={sid} ({slug})")
 
-        write_card(slug, title, sid, ts, comments)
+        # Fetch question details for examples/test cases
+        try:
+            question_data = graphql_post(
+                QUESTION_DETAILS_QUERY,
+                {"titleSlug": slug},
+                session=session,
+                csrf=csrf
+            )
+            question = question_data.get("question") or {}
+            difficulty = question.get("difficulty", "Unknown")
+            content = question.get("content", "")
+            examples = parse_examples_from_html(content)
+
+            print(f"[INFO] Extracted {len(examples)} example(s) for {slug}")
+        except Exception as e:
+            print(f"[WARN] Failed to fetch question details for {slug}: {e}")
+            difficulty = "Unknown"
+            examples = []
+
+        write_card(slug, title, difficulty, sid, ts, examples, comments)
         seen.add(sid)
         processed += 1
 
