@@ -1,8 +1,8 @@
 # Implement Trie (Prefix Tree)
 
 **Difficulty:** Medium  
-**Submitted:** 2026-01-31 14:39 UTC  
-**Submission ID:** 1903096843
+**Submitted:** 2026-01-31 14:40 UTC  
+**Submission ID:** 1903099469
 
 ---
 
