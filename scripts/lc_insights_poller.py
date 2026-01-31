@@ -119,30 +119,82 @@ RE_BLOCK = re.compile(r"/\*.*?\*/", re.DOTALL)
 RE_LINE = re.compile(r"^\s*//(.*)$", re.MULTILINE)
 
 def extract_java_comments(code: str):
-    comments = []
+    """
+    Extract comments from Java code, grouping consecutive comment lines together.
+    """
+    comment_blocks = []
 
-    # /* ... */ blocks
-    for m in RE_BLOCK.finditer(code):
-        blk = m.group(0)
-        blk = re.sub(r"^/\*+|\*+/$", "", blk.strip())
-        for line in blk.splitlines():
-            line = re.sub(r"^\s*\*\s?", "", line).strip()
-            if line:
-                comments.append(line)
+    # Split code into lines to track line numbers
+    lines = code.split('\n')
 
-    # // single-line
-    for m in RE_LINE.finditer(code):
-        line = m.group(1).strip()
-        if line:
-            comments.append(line)
+    # Track /* */ block comments
+    in_block_comment = False
+    block_lines = []
 
-    # De-dupe preserve order
+    # Track // line comments
+    current_line_comment = []
+    last_comment_line = -2  # Initialize to impossible value
+
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+
+        # Handle block comments /* */
+        if '/*' in line and '*/' in line:
+            # Single-line block comment
+            blk = line[line.index('/*'):line.index('*/')+2]
+            blk = re.sub(r"^/\*+|\*+/$", "", blk).strip()
+            blk = re.sub(r"^\s*\*\s?", "", blk).strip()
+            if blk:
+                comment_blocks.append(blk)
+        elif '/*' in line:
+            in_block_comment = True
+            block_lines = [line[line.index('/*')+2:]]
+        elif '*/' in line:
+            if in_block_comment:
+                block_lines.append(line[:line.index('*/')])
+                # Process the block
+                block_text = ' '.join(
+                    re.sub(r"^\s*\*\s?", "", l).strip()
+                    for l in block_lines
+                ).strip()
+                if block_text:
+                    comment_blocks.append(block_text)
+                block_lines = []
+                in_block_comment = False
+        elif in_block_comment:
+            block_lines.append(line)
+        # Handle line comments //
+        elif stripped.startswith('//'):
+            comment_text = stripped[2:].strip()
+            if comment_text:
+                # Check if this is consecutive with the previous comment
+                if i == last_comment_line + 1:
+                    # Consecutive comment - append to current block
+                    current_line_comment.append(comment_text)
+                else:
+                    # New comment block - save previous if exists
+                    if current_line_comment:
+                        comment_blocks.append(' '.join(current_line_comment))
+                    current_line_comment = [comment_text]
+                last_comment_line = i
+        else:
+            # Non-comment line - finalize any ongoing line comment block
+            if current_line_comment and i > last_comment_line + 1:
+                comment_blocks.append(' '.join(current_line_comment))
+                current_line_comment = []
+
+    # Don't forget the last comment block if file ends with comments
+    if current_line_comment:
+        comment_blocks.append(' '.join(current_line_comment))
+
+    # De-duplicate while preserving order
     seen = set()
     out = []
-    for c in comments:
+    for c in comment_blocks:
         if c not in seen:
             seen.add(c)
             out.append(c)
+
     return out
 
 # -----------------------
