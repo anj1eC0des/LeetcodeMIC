@@ -1,8 +1,8 @@
 # Linked List Components
 
 **Difficulty:** Medium  
-**Submitted:** 2026-01-20 15:16 UTC  
-**Submission ID:** 1891145463
+**Submitted:** 2026-02-03 07:38 UTC  
+**Submission ID:** 1906414566
 
 ---
 
@@ -22,20 +22,13 @@ Explanation: 0 and 1 are connected, so [0, 1] and [3] are the two connected comp
 Input: head = [0,1,2,3,4], nums = [0,3,1,4]
 Output: 2
 Explanation: 0 and 1 are connected, 3 and 4 are connected, so [0, 1] and [3, 4] are the two connected components.
-&nbsp;
 ```
 
 ## My Notes
 
-- Definition for singly-linked list.
-- public class ListNode {
-- int val;
-- ListNode next;
-- ListNode() {}
-- ListNode(int val) { this.val = val; }
-- ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-- }
+- Consecutive nodes with values in the nums set belong in one component.
+- We keep considering elements to be in the same component as long as they are consecutive and blong to nums set, else we consider it another component. we return the component count.
 
 ---
 
-*Last updated: 2026-01-31*
+*Last updated: 2026-02-03*

@@ -1,8 +1,8 @@
 # Split Linked List in Parts
 
 **Difficulty:** Medium  
-**Submitted:** 2026-01-21 07:25 UTC  
-**Submission ID:** 1891873068
+**Submitted:** 2026-02-03 07:39 UTC  
+**Submission ID:** 1906415269
 
 ---
 
@@ -25,25 +25,12 @@ Input: head = [1,2,3,4,5,6,7,8,9,10], k = 3
 Output: [[1,2,3,4],[5,6,7],[8,9,10]]
 Explanation:
 The input has been split into consecutive parts with size difference at most 1, and earlier parts are a larger size than the later parts.
-&nbsp;
 ```
 
 ## My Notes
 
-- Definition for singly-linked list.
-- public class ListNode {
-- int val;
-- ListNode next;
-- ListNode() {}
-- ListNode(int val) { this.val = val; }
-- ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-- }
-- System.out.println(n);
-- for(ListNode l:ans) System.out.print(l==null?"null":l.val+" ");
-- System.out.println();
-- System.out.println(n+" "+k);
-- System.out.println(l);
+*No comments found in submission*
 
 ---
 
-*Last updated: 2026-01-31*
+*Last updated: 2026-02-03*
