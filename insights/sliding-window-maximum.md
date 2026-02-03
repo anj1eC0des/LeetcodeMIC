@@ -1,8 +1,8 @@
 # Sliding Window Maximum
 
 **Difficulty:** Hard  
-**Submitted:** 2026-01-27 09:46 UTC  
-**Submission ID:** 1898425098
+**Submitted:** 2026-02-03 07:58 UTC  
+**Submission ID:** 1906429952
 
 ---
 
@@ -29,16 +29,12 @@ Window position                Max
 ```
 Input: nums = [1], k = 1
 Output: [1]
-&nbsp;
 ```
 
 ## My Notes
 
-- System.out.println("arr[i-1] is "+arr[i-1]);
-- System.out.println(map);
-- System.out.println("removed <- "+arr[i-1]);
-- System.out.println("put -> "+ arr[i+k-1]);
+*No comments found in submission*
 
 ---
 
-*Last updated: 2026-01-31*
+*Last updated: 2026-02-03*
