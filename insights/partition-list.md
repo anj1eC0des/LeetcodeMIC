@@ -1,8 +1,8 @@
 # Partition List
 
 **Difficulty:** Medium  
-**Submitted:** 2026-01-20 07:47 UTC  
-**Submission ID:** 1890761561
+**Submitted:** 2026-02-03 06:51 UTC  
+**Submission ID:** 1906370740
 
 ---
 
@@ -20,20 +20,13 @@ Output: [1,2,2,4,3,5]
 ```
 Input: head = [2,1], x = 2
 Output: [1,2]
-&nbsp;
 ```
 
 ## My Notes
 
-- Definition for singly-linked list.
-- public class ListNode {
-- int val;
-- ListNode next;
-- ListNode() {}
-- ListNode(int val) { this.val = val; }
-- ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-- }
+- Update two different lists adding nodes to either based on condition.
+- This is the base idea, you can return as the problem demands.
 
 ---
 
-*Last updated: 2026-01-31*
+*Last updated: 2026-02-03*

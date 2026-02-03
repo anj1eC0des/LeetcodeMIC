@@ -1,8 +1,8 @@
 # Flatten a Multilevel Doubly Linked List
 
 **Difficulty:** Medium  
-**Submitted:** 2026-01-19 11:37 UTC  
-**Submission ID:** 1889796069
+**Submitted:** 2026-02-03 06:48 UTC  
+**Submission ID:** 1906367831
 
 ---
 
@@ -32,20 +32,12 @@ After flattening the multilevel linked list it becomes:
 Input: head = []
 Output: []
 Explanation: There could be empty list in the input.
-&nbsp;
 ```
 
 ## My Notes
 
-- // Definition for a Node.
-- class Node {
-- public int val;
-- public Node prev;
-- public Node next;
-- public Node child;
-- };
-- Definition for a Node.
+- Make a recursive function that visits branches and returns a flattend list(both head and tail), attach the next node to the end of the returned list and make the head of this list as the next node. Doing this recursively flattens the whole list.
 
 ---
 
-*Last updated: 2026-01-31*
+*Last updated: 2026-02-03*
