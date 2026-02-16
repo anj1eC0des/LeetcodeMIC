@@ -8,6 +8,7 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🟡 [Convert BST to Greater Tree](convert-bst-to-greater-tree.md)
 - 🟢 [Cousins in Binary Tree](cousins-in-binary-tree.md)
 - 🟡 [Design Add and Search Words Data Structure](design-add-and-search-words-data-structure.md)
+- 🟡 [Design Twitter](design-twitter.md)
 - 🟡 [Flatten a Multilevel Doubly Linked List](flatten-a-multilevel-doubly-linked-list.md)
 - 🟡 [Flatten Binary Tree to Linked List](flatten-binary-tree-to-linked-list.md)
 - 🟡 [Flatten Nested List Iterator](flatten-nested-list-iterator.md)
