@@ -17,6 +17,7 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🟡 [Implement Trie (Prefix Tree)](implement-trie-prefix-tree.md)
 - 🟡 [Linked List Components](linked-list-components.md)
 - 🟡 [Longest Palindromic Substring](longest-palindromic-substring.md)
+- 🟡 [LRU Cache](lru-cache.md)
 - 🟡 [Next Greater Node In Linked List](next-greater-node-in-linked-list.md)
 - 🟡 [Partition List](partition-list.md)
 - 🟡 [Permutation in String](permutation-in-string.md)
