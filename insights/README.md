@@ -12,6 +12,7 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🟡 [Flatten a Multilevel Doubly Linked List](flatten-a-multilevel-doubly-linked-list.md)
 - 🟡 [Flatten Binary Tree to Linked List](flatten-binary-tree-to-linked-list.md)
 - 🟡 [Flatten Nested List Iterator](flatten-nested-list-iterator.md)
+- 🟡 [House Robber II](house-robber-ii.md)
 - 🟡 [Implement Trie (Prefix Tree)](implement-trie-prefix-tree.md)
 - 🟡 [Linked List Components](linked-list-components.md)
 - 🟡 [Longest Palindromic Substring](longest-palindromic-substring.md)
