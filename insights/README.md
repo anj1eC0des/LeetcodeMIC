@@ -19,6 +19,7 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🟡 [Longest Palindromic Substring](longest-palindromic-substring.md)
 - 🟡 [LRU Cache](lru-cache.md)
 - 🟡 [Next Greater Node In Linked List](next-greater-node-in-linked-list.md)
+- 🟡 [Palindromic Substrings](palindromic-substrings.md)
 - 🟡 [Partition List](partition-list.md)
 - 🟡 [Permutation in String](permutation-in-string.md)
 - 🔴 [Sliding Window Maximum](sliding-window-maximum.md)
