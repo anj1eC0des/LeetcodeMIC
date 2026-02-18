@@ -18,6 +18,7 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🟡 [Linked List Components](linked-list-components.md)
 - 🟡 [Longest Palindromic Substring](longest-palindromic-substring.md)
 - 🟡 [LRU Cache](lru-cache.md)
+- 🔴 [Merge k Sorted Lists](merge-k-sorted-lists.md)
 - 🟡 [Next Greater Node In Linked List](next-greater-node-in-linked-list.md)
 - 🟡 [Palindromic Substrings](palindromic-substrings.md)
 - 🟡 [Partition List](partition-list.md)
