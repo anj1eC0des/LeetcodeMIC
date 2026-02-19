@@ -7,6 +7,7 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🟡 [Binary Tree Pruning](binary-tree-pruning.md)
 - 🟡 [Convert BST to Greater Tree](convert-bst-to-greater-tree.md)
 - 🟢 [Cousins in Binary Tree](cousins-in-binary-tree.md)
+- 🟡 [Decode Ways](decode-ways.md)
 - 🟡 [Design Add and Search Words Data Structure](design-add-and-search-words-data-structure.md)
 - 🟡 [Design Twitter](design-twitter.md)
 - 🔴 [Find Median from Data Stream](find-median-from-data-stream.md)
