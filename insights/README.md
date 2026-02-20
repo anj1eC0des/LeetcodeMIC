@@ -31,4 +31,5 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🟡 [Swapping Nodes in a Linked List](swapping-nodes-in-a-linked-list.md)
 - 🟡 [Time Based Key-Value Store](time-based-key-value-store.md)
 - 🔴 [Trapping Rain Water](trapping-rain-water.md)
+- 🟡 [Valid Parenthesis String](valid-parenthesis-string.md)
 - 🔴 [Word Search II](word-search-ii.md)
