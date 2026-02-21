@@ -28,6 +28,7 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🟡 [Permutation in String](permutation-in-string.md)
 - 🟢 [Plus One](plus-one.md)
 - 🟡 [Pow(x, n)](powx-n.md)
+- 🔴 [Reverse Nodes in k-Group](reverse-nodes-in-k-group.md)
 - 🟡 [Set Matrix Zeroes](set-matrix-zeroes.md)
 - 🔴 [Sliding Window Maximum](sliding-window-maximum.md)
 - 🟡 [Sort List](sort-list.md)
