@@ -1,8 +1,8 @@
 # Find the Duplicate Number
 
 **Difficulty:** Medium  
-**Submitted:** 2026-02-16 13:49 UTC  
-**Submission ID:** 1921081332
+**Submitted:** 2026-02-21 12:52 UTC  
+**Submission ID:** 1926332943
 
 ---
 
@@ -35,4 +35,4 @@ Output: 3
 
 ---
 
-*Last updated: 2026-02-16*
+*Last updated: 2026-02-21*
