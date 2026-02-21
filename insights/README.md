@@ -26,6 +26,8 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🟡 [Palindromic Substrings](palindromic-substrings.md)
 - 🟡 [Partition List](partition-list.md)
 - 🟡 [Permutation in String](permutation-in-string.md)
+- 🟢 [Plus One](plus-one.md)
+- 🟡 [Pow(x, n)](powx-n.md)
 - 🔴 [Sliding Window Maximum](sliding-window-maximum.md)
 - 🟡 [Sort List](sort-list.md)
 - 🟡 [Split Linked List in Parts](split-linked-list-in-parts.md)
