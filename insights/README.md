@@ -29,6 +29,7 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🟢 [Plus One](plus-one.md)
 - 🟡 [Pow(x, n)](powx-n.md)
 - 🔴 [Reverse Nodes in k-Group](reverse-nodes-in-k-group.md)
+- 🔴 [Serialize and Deserialize Binary Tree](serialize-and-deserialize-binary-tree.md)
 - 🟡 [Set Matrix Zeroes](set-matrix-zeroes.md)
 - 🔴 [Sliding Window Maximum](sliding-window-maximum.md)
 - 🟡 [Sort List](sort-list.md)
