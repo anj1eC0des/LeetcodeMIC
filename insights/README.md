@@ -38,4 +38,5 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🟡 [Time Based Key-Value Store](time-based-key-value-store.md)
 - 🔴 [Trapping Rain Water](trapping-rain-water.md)
 - 🟡 [Valid Parenthesis String](valid-parenthesis-string.md)
+- 🔴 [Word Ladder](word-ladder.md)
 - 🔴 [Word Search II](word-search-ii.md)
