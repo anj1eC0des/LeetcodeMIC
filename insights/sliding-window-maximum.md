@@ -1,8 +1,8 @@
 # Sliding Window Maximum
 
 **Difficulty:** Hard  
-**Submitted:** 2026-02-22 17:29 UTC  
-**Submission ID:** 1927671412
+**Submitted:** 2026-02-23 09:55 UTC  
+**Submission ID:** 1928353821
 
 ---
 
@@ -37,4 +37,4 @@ Output: [1]
 
 ---
 
-*Last updated: 2026-02-22*
+*Last updated: 2026-02-23*
