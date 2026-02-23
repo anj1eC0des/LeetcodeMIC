@@ -33,6 +33,7 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🟡 [Set Matrix Zeroes](set-matrix-zeroes.md)
 - 🔴 [Sliding Window Maximum](sliding-window-maximum.md)
 - 🟡 [Sort List](sort-list.md)
+- 🟡 [Spiral Matrix](spiral-matrix.md)
 - 🟡 [Split Linked List in Parts](split-linked-list-in-parts.md)
 - 🟡 [Swapping Nodes in a Linked List](swapping-nodes-in-a-linked-list.md)
 - 🟡 [Time Based Key-Value Store](time-based-key-value-store.md)
