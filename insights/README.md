@@ -6,6 +6,7 @@ Personal notes and reflections from LeetCode problem submissions.
 
 - 🟡 [Binary Tree Pruning](binary-tree-pruning.md)
 - 🟡 [Convert BST to Greater Tree](convert-bst-to-greater-tree.md)
+- 🟢 [Counting Bits](counting-bits.md)
 - 🟢 [Cousins in Binary Tree](cousins-in-binary-tree.md)
 - 🟡 [Decode Ways](decode-ways.md)
 - 🟡 [Design Add and Search Words Data Structure](design-add-and-search-words-data-structure.md)
@@ -23,6 +24,7 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🔴 [Merge k Sorted Lists](merge-k-sorted-lists.md)
 - 🟡 [Merge Triplets to Form Target Triplet](merge-triplets-to-form-target-triplet.md)
 - 🟡 [Next Greater Node In Linked List](next-greater-node-in-linked-list.md)
+- 🟢 [Number of 1 Bits](number-of-1-bits.md)
 - 🟡 [Palindromic Substrings](palindromic-substrings.md)
 - 🟡 [Partition List](partition-list.md)
 - 🟡 [Permutation in String](permutation-in-string.md)
@@ -31,6 +33,7 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🔴 [Reverse Nodes in k-Group](reverse-nodes-in-k-group.md)
 - 🔴 [Serialize and Deserialize Binary Tree](serialize-and-deserialize-binary-tree.md)
 - 🟡 [Set Matrix Zeroes](set-matrix-zeroes.md)
+- 🟢 [Single Number](single-number.md)
 - 🔴 [Sliding Window Maximum](sliding-window-maximum.md)
 - 🟡 [Sort List](sort-list.md)
 - 🟡 [Spiral Matrix](spiral-matrix.md)
