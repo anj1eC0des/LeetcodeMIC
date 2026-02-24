@@ -18,6 +18,7 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🟡 [Flatten Nested List Iterator](flatten-nested-list-iterator.md)
 - 🟡 [House Robber II](house-robber-ii.md)
 - 🟡 [Implement Trie (Prefix Tree)](implement-trie-prefix-tree.md)
+- 🔴 [Largest Rectangle in Histogram](largest-rectangle-in-histogram.md)
 - 🟡 [Linked List Components](linked-list-components.md)
 - 🟡 [Longest Palindromic Substring](longest-palindromic-substring.md)
 - 🟡 [LRU Cache](lru-cache.md)
