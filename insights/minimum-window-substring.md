@@ -1,8 +1,8 @@
 # Minimum Window Substring
 
 **Difficulty:** Hard  
-**Submitted:** 2026-02-24 10:05 UTC  
-**Submission ID:** 1929508173
+**Submitted:** 2026-02-24 12:11 UTC  
+**Submission ID:** 1929607657
 
 ---
 
