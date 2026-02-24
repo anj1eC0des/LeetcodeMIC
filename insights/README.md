@@ -23,6 +23,7 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🟡 [LRU Cache](lru-cache.md)
 - 🔴 [Merge k Sorted Lists](merge-k-sorted-lists.md)
 - 🟡 [Merge Triplets to Form Target Triplet](merge-triplets-to-form-target-triplet.md)
+- 🔴 [Minimum Window Substring](minimum-window-substring.md)
 - 🟡 [Next Greater Node In Linked List](next-greater-node-in-linked-list.md)
 - 🟢 [Number of 1 Bits](number-of-1-bits.md)
 - 🟡 [Palindromic Substrings](palindromic-substrings.md)
