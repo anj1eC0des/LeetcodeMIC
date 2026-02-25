@@ -1,8 +1,8 @@
 # Largest Rectangle in Histogram
 
 **Difficulty:** Hard  
-**Submitted:** 2026-02-25 12:45 UTC  
-**Submission ID:** 1930767581
+**Submitted:** 2026-02-25 15:35 UTC  
+**Submission ID:** 1930918499
 
 ---
 
