@@ -12,6 +12,7 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🟡 [Design Add and Search Words Data Structure](design-add-and-search-words-data-structure.md)
 - 🟡 [Design Twitter](design-twitter.md)
 - 🔴 [Find Median from Data Stream](find-median-from-data-stream.md)
+- 🟡 [Find Minimum in Rotated Sorted Array](find-minimum-in-rotated-sorted-array.md)
 - 🟡 [Find the Duplicate Number](find-the-duplicate-number.md)
 - 🟡 [Flatten a Multilevel Doubly Linked List](flatten-a-multilevel-doubly-linked-list.md)
 - 🟡 [Flatten Binary Tree to Linked List](flatten-binary-tree-to-linked-list.md)
