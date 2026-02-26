@@ -34,6 +34,7 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🟢 [Plus One](plus-one.md)
 - 🟡 [Pow(x, n)](powx-n.md)
 - 🔴 [Reverse Nodes in k-Group](reverse-nodes-in-k-group.md)
+- 🟡 [Search in Rotated Sorted Array](search-in-rotated-sorted-array.md)
 - 🔴 [Serialize and Deserialize Binary Tree](serialize-and-deserialize-binary-tree.md)
 - 🟡 [Set Matrix Zeroes](set-matrix-zeroes.md)
 - 🟢 [Single Number](single-number.md)
