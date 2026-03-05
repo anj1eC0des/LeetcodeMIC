@@ -22,6 +22,7 @@ Personal notes and reflections from LeetCode problem submissions.
 - 🔴 [Largest Rectangle in Histogram](largest-rectangle-in-histogram.md)
 - 🟡 [Linked List Components](linked-list-components.md)
 - 🟡 [Longest Palindromic Substring](longest-palindromic-substring.md)
+- 🔴 [Longest Valid Parentheses](longest-valid-parentheses.md)
 - 🟡 [LRU Cache](lru-cache.md)
 - 🔴 [Merge k Sorted Lists](merge-k-sorted-lists.md)
 - 🟡 [Merge Triplets to Form Target Triplet](merge-triplets-to-form-target-triplet.md)
